@@ -1,0 +1,12 @@
+on:
+  push:
+    branches: [ "release/*" ]
+
+jobs:
+  build-plugin:
+    uses: ebinsu/aliyun-action-templates/.github/workflows/maven-deploy-template.yml@main
+    with:
+      jdk: 17
+      custom_script: |
+        mvn deploy
+    secrets: inherit
